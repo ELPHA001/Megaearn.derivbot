@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deriv-bot>
+  <api-credentials>
+    <api-token>BMUA4ZriD0OLUU3</api-token>
+    <account-id>CR7425306</account-id>
+  </api-credentials>
+  <trading-parameters>
+    <symbol>R_100</symbol> <!-- Trade on the R_100 symbol (e.g., EUR/USD) -->
+    <stake>100</stake> <!-- Initial stake -->
+    <profit-target>700</profit-target> <!-- Aim for a 7x profit -->
+    <stop-loss>600</stop-loss> <!-- Stop loss level -->
+    <take-profit>800</take-profit> <!-- Take profit level -->
+  </trading-parameters>
+  <risk-management>
+    <risk-reward-ratio>
+      <risk>1</risk>
+      <reward>3</reward>
+    </risk-reward-ratio>
+    <position-size>30</position-size> <!-- Calculate position size based on risk-reward ratio -->
+  </risk-management>
+  <trading-strategy>
+    <condition>
+      <type>above</type>
+      <price-type>last</price-type>
+      <symbol>R_100</symbol>
+      <comparison-operator>&gt;</comparison-operator>
+      <value>previous-high</value>
+    </condition>
+    <action>
+      <type>buy-call-option</type>
+      <symbol>R_100</symbol>
+      <position-size>30</position-size>
+      <take-profit>800</take-profit>
+      <stop-loss>600</stop-loss>
+    </action>
+    <alternative-action>
+      <type>sell-put-option</type>
+      <symbol>R_100</symbol>
+      <position-size>30</position-size>
+      <take-profit>800</take-profit>
+      <stop-loss>600</stop-loss>
+    </alternative-action>
+  </trading-strategy>
+  <schedule>
+    <interval>1m</interval> <!-- Check trading strategy every 1 minute -->
+  </schedule>
+</deriv-bot>
